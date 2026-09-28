@@ -1,22 +1,34 @@
 Dice bob;
+IntList numbers;
+int t;
+int sum;
 
 void setup(){
-  size(500,500);
+  size(500,525);
   textAlign(CENTER,CENTER);
   noLoop();
 }
 void draw(){
-  bob = new Dice(50,50);
-  bob.roll();
-  bob.show();
-
-
+  background(255);
+  for(int x = 0;x<150;x+=50){
+    for(int y = 0;y<150;y+=50){
+      bob = new Dice(x,y);
+      bob.roll();
+      bob.show();
+      sum+=t;
+    }
+  }
+  textSize(25);
+  text(sum,250,512);
 }
 
 void mousePressed()
 {
+  sum=0;
   redraw();
 }
+
+// class def
 class Dice
 {
   int myX, myY, r;
@@ -25,19 +37,20 @@ class Dice
     myX = x;
     myY = y;
 
-  }  
+  }//initialization  
   void roll(){
-    r = (int)(random(1,6));
-  }
+    r = (int)(random(1,7));
+    t=r;
+  }//rngroll
   void show(){
     fill(255);
-    noStroke();
     rect(myX,myY,50,50);
     fill(0);
     for(int i = 1; i<=6; i++){
       if (r == i){
-        text(i,myX,myY);
-      }
-    }
+        textSize(21);
+        text(i,myX+25,myY+25);
+      }//if
+    }//for
   }
-}
+}//end dice class
