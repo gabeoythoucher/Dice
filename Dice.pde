@@ -10,8 +10,8 @@ void setup(){
 }
 void draw(){
   background(255);
-  for(int x = 0;x<150;x+=50){
-    for(int y = 0;y<150;y+=50){
+  for(int x = 0;x<500;x+=50){
+    for(int y = 0;y<500;y+=50){
       bob = new Dice(x,y);
       bob.roll();
       bob.show();
