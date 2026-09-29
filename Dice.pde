@@ -4,14 +4,14 @@ int t;
 int sum;
 
 void setup(){
-  size(500,525);
+  size(550,600);
   textAlign(CENTER,CENTER);
   noLoop();
 }
 void draw(){
   background(255);
-  for(int x = 0;x<500;x+=50){
-    for(int y = 0;y<500;y+=50){
+  for(int x = 0;x<550;x+=55){
+    for(int y = 0;y<550;y+=55){
       bob = new Dice(x,y);
       bob.roll();
       bob.show();
@@ -19,7 +19,8 @@ void draw(){
     }
   }
   textSize(25);
-  text(sum,250,512);
+  text("sum:",225,575);
+  text(sum,280,575);
 }
 
 void mousePressed()
