@@ -2,6 +2,9 @@ Dice bob;
 IntList numbers;
 int t;
 int sum;
+int r = (int)Math.random()*128+70;
+int g = (int)Math.random()*128+70;
+int b = (int)Math.random()*128+70;
 
 void setup(){
   size(550,600);
@@ -9,11 +12,15 @@ void setup(){
   noLoop();
 }
 void draw(){
+  r = (int)Math.random()*128+70;
+  g = (int)Math.random()*128+70;
+  b = (int)Math.random()*128+70;
   background(255);
   for(int x = 0;x<550;x+=55){
     for(int y = 0;y<550;y+=55){
       bob = new Dice(x,y);
       bob.roll();
+      fill(r+x/5,g+y/5,b);
       bob.show();
       sum+=t;
     }
@@ -40,11 +47,10 @@ class Dice
 
   }//initialization  
   void roll(){
-    r = (int)(random(1,7));
+    r = (int)(Math.random()*6+1);
     t=r;
   }//rngroll
   void show(){
-    fill(255);
     rect(myX,myY,50,50);
     fill(0);
     for(int i = 1; i<=6; i++){
